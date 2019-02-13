@@ -41,20 +41,18 @@ var quotes = [
   source : 'Charles Swindoll',
   }
 ];
-//variables to be filled with quote and source data
-var randomQuote = "";
-var randomSource = "";
+
 //function to randomly select a set of objects from the array
 function getRandomQuote(array) {
   var rand = Math.floor(Math.random()*(quotes.length - 1));
-  randomQuote = array[rand].quote;
-  randomSource = array[rand].source;;
+  randomQuote = array[rand];
+  return randomQuote;
 }
 //function to print the selected objects to the page
 function printQuote() {
   getRandomQuote(quotes);
-  document.getElementById("quote").innerHTML = randomQuote;
-  document.getElementById("source").innerHTML = randomSource;
+  document.getElementById("quote").innerHTML = randomQuote.quote;
+  document.getElementById("source").innerHTML = randomQuote.source;
 }
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
